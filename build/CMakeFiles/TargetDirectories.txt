@@ -1,0 +1,3 @@
+C:/Users/OlavA/Documents/Github Repositories/MatrixWeaver/build/CMakeFiles/MatrixWeaver.dir
+C:/Users/OlavA/Documents/Github Repositories/MatrixWeaver/build/CMakeFiles/edit_cache.dir
+C:/Users/OlavA/Documents/Github Repositories/MatrixWeaver/build/CMakeFiles/rebuild_cache.dir
