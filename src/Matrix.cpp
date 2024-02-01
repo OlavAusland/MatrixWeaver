@@ -45,6 +45,21 @@ Matrix::Matrix(int rows, int columns) : rows(rows), columns(columns)
 	Initialize();
 }
 
+Matrix Matrix::Transpose()
+{
+	Matrix result{columns, rows};
+	
+	for(int i = 0; i < rows; i++)
+	{
+		for(int j = 0; j < columns; j++)
+		{
+			result[j][i] = layout[i][j];
+		}
+	}
+
+	return result;
+}
+
 std::ostream& operator<<(std::ostream& os, const Matrix& matrix)
 {
 	for(int i = 0; i < matrix.rows; i++)

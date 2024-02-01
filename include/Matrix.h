@@ -12,19 +12,20 @@ public:
 	int columns{1};
 
 	double** layout;
-	
-	void Initialize();
 
 	Matrix(int rows, int columns);
 	Matrix& operator-=(const Matrix& other);
 	Matrix& operator+=(const Matrix& other);
 	Matrix(std::string matrix, char row_del='\\', char col_del='&');
 
+	Matrix Transpose();	
+
 	double* operator[](int index) const
 	{
 		return layout[index];
 	}
-
+private:
+	void Initialize();
 };
 
 Matrix operator*(const Matrix& lhs, const Matrix& rhs);
