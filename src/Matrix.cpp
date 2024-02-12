@@ -141,3 +141,43 @@ Matrix& Matrix::operator+=(const Matrix& other)
 	return *this;
 }
 
+int RowEchelon(Matrix& matrix)
+{
+	int lead = 0;
+	
+	while(lead < matrix.rows)
+	{
+		for(int i = lead+1; i < matrix.rows; i++)
+		{
+			double coefficient = matrix[i][lead] / matrix[lead][lead];
+			
+			for(int j = 0; j < matrix.columns; j++) 
+			{
+				//double coefficient = matrix[i][j] / matrix[lead][lead];
+				std::cout << matrix[lead][lead] << ',' << matrix[i][j] << ',' << coefficient << std::endl;
+				matrix[i][j] += matrix[lead][j] * coefficient * -1;	
+			}
+		}
+		lead++;
+	
+		for(int i = 0; i < matrix.rows; i++)
+		{
+			double leading = 1;
+			int flag = 0;
+			for(int j = 0; j < matrix.columns; j++)
+			{	
+				if(!flag && matrix[i][j] != 0.0)
+				{
+					leading = matrix[i][j];
+					flag = 1;
+				}
+				if(flag)
+				{
+					matrix[i][j] *= (1.0 / leading);
+					continue;
+				}
+
+			}
+		}
+	}
+}

@@ -32,3 +32,5 @@ Matrix operator*(const Matrix& lhs, const Matrix& rhs);
 Matrix operator+(const Matrix& lhs, const Matrix& rhs);
 Matrix operator-(const Matrix& lhs, const Matrix& rhs);
 std::ostream& operator<<(std::ostream& os, const Matrix& matrix);
+
+int RowEchelon(Matrix& matrix);
