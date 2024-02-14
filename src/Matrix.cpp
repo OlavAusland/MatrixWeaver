@@ -153,8 +153,6 @@ int RowEchelon(Matrix& matrix)
 			
 			for(int j = 0; j < matrix.columns; j++) 
 			{
-				//double coefficient = matrix[i][j] / matrix[lead][lead];
-				std::cout << matrix[lead][lead] << ',' << matrix[i][j] << ',' << coefficient << std::endl;
 				matrix[i][j] += matrix[lead][j] * coefficient * -1;	
 			}
 		}
@@ -177,6 +175,37 @@ int RowEchelon(Matrix& matrix)
 					continue;
 				}
 
+			}
+		}
+	}
+}
+
+void ReducedRowEchelon(Matrix& matrix)
+{
+	RowEchelon(matrix);
+
+	for(int i = matrix.rows - 1; i > 0; i--)
+	{
+		int leading;
+		
+		for(int j = 0; j < matrix.columns; j++)
+		{
+			if(matrix[i][j] != 0.0)
+			{
+				leading = j;
+				break;
+			}
+		}
+
+		for(int j = i-1; j >= 0; j--)
+		{
+			if(matrix[j][leading] == 0.0){continue;}
+
+			double coefficient = (matrix[j][leading] / matrix[i][leading]);
+
+			for(int k = 0; k < matrix.columns; k++)
+			{	
+				matrix[j][k] += coefficient * matrix[i][k] * -1;
 			}
 		}
 	}
